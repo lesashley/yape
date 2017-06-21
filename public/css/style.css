@@ -2,7 +2,7 @@
   font-family: 'Roboto' !important;
 }
 .container{
-  height: 100vh;
+  height: 90vh;
   display: flex;
   align-items: center;
   flex-wrap: wrap;
@@ -52,14 +52,60 @@
 
 /*Segunda pagina*/
 .logo-registro1{
+  margin-top: 60px;
   width: 150px;
 }
 .box-input1{
   width: 270px;
   margin-bottom: 0;
 }
-
 .icon-input1{
   position: absolute;
   width: 70px;
+}
+/*Tercera pagina*/
+.logo-registro2{
+  margin-top: 60px;
+  width: 100px;
+}
+.box-input2{
+  width: 270px;
+  position: relative;
+}
+.icon-input2{
+  width: 15px;
+  position: absolute;
+  bottom: 30px;
+}
+.box-contador{
+  margin-bottom: 100px;
+}
+.clock{
+  width: 16px;
+}
+/*cuarta-pagina*/
+.icon-user{
+  bottom: 30px;
+  width: 22px;
+}
+.icon-lock{
+  bottom: 70px;
+  width: 17px;
+}
+.icon-send{
+  bottom: 30px;
+  width: 20px;
+}
+.icon-send,
+.icon-lock,
+.icon-user{
+  position: absolute;
+}
+.box-input3{
+  width: 270px;
+  position: relative;
+}
+.logo-registro3{
+  margin-top: 30px;
+  width: 100px;
 }

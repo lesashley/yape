@@ -6,7 +6,7 @@ const RegCelular = (update) =>{
   const textPortada = $('<h5>Para comenzar validemos tu número</h5><span>Recibirás un SMS con un código de validación</span>');
   const divInput = $('<div class="box-input1"></div>');
   const icon = $('<img src="img/icons/phoneandnumber.png" class="icon-input1"/>');
-  const input = $('<input type="text" class="center-align col s12">');
+  const input = $('<input type="text" pattern="/9[0-9]{8}/" class="center-align col s12 num" maxlength="9">');
   const divCheck = $('<div></div>');
   const checkbox = $('<input type="checkbox" class="filled-in check" id="filled-in-box" value="true"/>');
   const label = $('<label for="filled-in-box">Acepto los <a>Terminos y condiciones</a></label>');
@@ -25,39 +25,50 @@ const RegCelular = (update) =>{
   container.append(divCheck);
   container.append(divButton);
 
-  // state.code = postRegisterNumber("928310199", "true");
-  // console.log(state.code) ;
+  input.keypress(numeros);
 
-var numero, estado;
+
   checkbox.on( 'change', function() {
-      if( $(this).is(':checked') ) {
-           estado = $(this).val();
+      if( $(this).is(':checked')) {
+           state.estado = $(this).val();
+           button.removeClass("disabled");
       } else {
-          estado = null;
+          state.estado  = null;
       }
+      console.log(state.estado);
   });
-  input.on('keyup',()=>{
-    console.log(input.val());
-    numero = input.val();
-  })
-  // portada.on('click',()=>{
-  //   button.removeClass("disabled");
-  // });
-  console.log(numero);
-  console.log(estado);
-if (estado != null && numero.lenght==8) {
-  $.post("api/registerNumber",
-  {phone : numero,
-    terms : estado},
-    function(result) {
-      console.log(result);
-      if (result.data != null) {
-        button.removeClass("disabled");
-        const n = result.data.code;
-        console.log(n);
-      }
-    });
-}
+
+  input.on('blur',()=>{
+    if (input.val().length == 9 ) {state.telefono = true;}
+    else {state.telefono = null;}
+    console.log(state.telefono);
+  });
+
+  button.on('click',()=>{
+    $.post("api/registerNumber",
+    {phone : state.telefono,
+      terms : state.estado},
+      function(result) {
+        if (result.success != "false") {
+          state.code = result.data.code;
+          update();
+          console.log(state.code);
+        }
+      });
+    })
 
   return container;
+}
+
+const numeros = (e) => {
+  if ((e.which>=48 && e.which<=57)) { return true; }
+  else { return false;}
+}
+const letras = (e) => {
+  if ((e.which>=97 && e.which<=122) || (e.which>=65 && e.which<=90) || e.which == 39 || e.which == 32 || e.which==241 || e.which==209) {
+    return true;
+  }
+  else {
+    return false;
+  }
 }
