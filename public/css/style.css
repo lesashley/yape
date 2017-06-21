@@ -1,6 +1,22 @@
 *{
   font-family: 'Roboto' !important;
 }
+.tex-gris{
+  color: #8f8f8f;
+}
+.width-logo{
+  margin-top: 60px;
+  width: 100px;
+}
+.span-gris{
+  color: #8f8f8f;
+  font-size: 0.9rem;
+}
+.title-portada{
+  font-size: 1.60rem;
+  font-weight: 500;
+  /*font-weight: bold;*/
+}
 .container{
   height: 90vh;
   display: flex;
@@ -49,19 +65,30 @@
   background-color: #fbd43b;
   color: #fff;
 }
-
-/*Segunda pagina*/
-.logo-registro1{
-  margin-top: 60px;
-  width: 150px;
+.relative{
+  position: relative;
 }
+.absolute{
+  position: absolute;
+}
+.size{
+  height: 80vh;
+}
+.btn-orange{
+  background-color: #fbd43b;
+}
+/*Segunda pagina*/
+/*.logo-registro1{
+
+}*/
+
+
 .box-input1{
   width: 270px;
-  margin-bottom: 0;
 }
 .icon-input1{
-  position: absolute;
   width: 70px;
+  top : 0;
 }
 /*Tercera pagina*/
 .logo-registro2{
@@ -108,4 +135,57 @@
 .logo-registro3{
   margin-top: 30px;
   width: 100px;
+}
+
+/*quita pagina*/
+.fondo-bienvenida{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #fbd43b;
+}
+.img-check{
+  display: block;
+  width: 100px;
+}
+/**/
+.icon-tarjeta{
+  width: 25px;
+  top: 15px;
+}
+.escanear{
+  width: 100%;
+  margin: 0 auto;
+}
+.fecha{
+  width: 100%;
+}
+.screen{
+  width: 25px;
+}
+.fecha input{
+  width: 20px;
+}
+.fecha input::placeholder{
+  text-align: left;
+}
+.size{
+  padding: 0 20px;
+}
+.question{
+  width: 100%;
+}
+.question img{
+  width: 25px;
+  position: relative;
+  top: 15px;
+}
+.input-card{
+  width: 250px;
+}
+.icon-lock2{
+  top: 0;
+  width: 20px;
 }

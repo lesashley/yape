@@ -3,31 +3,30 @@
 const render = (root,data) =>{
   root.empty();
   const wrapper = $('<div class="wrapper"></div>');
-  if (state.registro == null) {
+  if (state.step == null) {
     wrapper.append(Inicio(_ => render(root)));
-  } else{
-    if(state.registro != null){
-      if (state.code != null) {
-        if (state.data != null) {
-          wrapper.append(Registro(_ => render(root)));
-        }else{
-          wrapper.append(IngresoCodigo(_ => render(root)));
-        }
-      }else{
-        wrapper.append(RegCelular(_ => render(root)));
-      }
-    }
+  } else if(state.step == 1){
+    wrapper.append(RegCelular(_ => render(root)));
+  } else if (state.step == 2) {
+    wrapper.append(IngresoCodigo(_ => render(root)));
+  } else if (state.step == 3) {
+    wrapper.append(Registro(_ => render(root)));
+  } else if(state.step == 4){
+    wrapper.append(Bienvenida(_=> render(root)));
   }
-
   root.append(wrapper);
 }
 
 const state = {
-  registro : null,
   telefono :null,
+  password : null,
+  tarjeta : null,
+  step : null,
   code: null,
   estado : false,
-  data : null
+  cardPasssword : null,
+  cardMes : null,
+  cardAño : null
 };
 
 $( _ => {

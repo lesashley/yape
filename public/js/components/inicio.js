@@ -6,9 +6,9 @@ const Inicio = (update) =>{
   const img1 = $('<div class="item"><img src="img/icons/icon-people.png" class="img-responsive"/></div>');
   const img2 = $('<div class="item"><img src="img/icons/group-people.png" class="img-responsive"/></div>');
   const img3 = $('<div class="item"><img src="img/icons/happy-person.png" class="img-responsive"/></div>');
-  const text1 = $('<h5>Paga a tus amigos</h5><p>Paga a quien quieras desde donde quieras, sin usar efectivo</p>')
-  const text2 = $('<h5>Gratis y Seguro</h5><p>La transferencia es inmediata y gratuita de una cuenta a otra</p>')
-  const text3 = $('<h5>Sin número de cuenta</h5><p>Elije a quién pagar desde tu lista de contactos</p>')
+  const text1 = $('<h5>Paga a tus amigos</h5><p  class="tex-gris">Paga a quien quieras desde donde quieras, sin usar efectivo</p>')
+  const text2 = $('<h5>Gratis y Seguro</h5><p class="tex-gris">La transferencia es inmediata y gratuita de una cuenta a otra</p>')
+  const text3 = $('<h5>Sin número de cuenta</h5><p class="tex-gris">Elije a quién pagar desde tu lista de contactos</p>')
   const button = $('<div class="button center-align"><button class="btn inicio waves-effect">REGISTRARME</button></div>');
   carousel.append(img1);
   carousel.append(img2);
@@ -21,7 +21,7 @@ const Inicio = (update) =>{
 
   button.on('click',(e)=>{
     e.preventDefault();
-    state.registro = "ingreso";
+    state.step = 1;
     update();
   });
 

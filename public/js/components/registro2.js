@@ -10,10 +10,10 @@ const Registro = (update) =>{
   const inputCorreo = $('<input type="email" class="center-align col s12 email validate" placeholder="correo@ejemplo.com">');
   const divInput3 = $('<div class="box-input3"></div>');
   const icon3 = $('<img src="img/icons/lock.png" class="icon-lock"/>');
-  const inputClave = $('<input type="password" class="center-align col s12 password" placeholder="Ingresa clave de 6 dígitos">');
+  const inputClave = $('<input type="password" class="center-align col s12 password" maxlength = "6" placeholder="Ingresa clave de 6 dígitos">');
   const textClave = $('<span>Cuida esta clave como oro, es tu acceso a Yape</span>');
   const divButton = $('<div class="center-align"></div>');
-  const button = $('<button class="btn disabled">CREAR CUENTA</button>');
+  const button = $('<button class="btn">CREAR CUENTA</button>');
 
   portada.append(textPortada);
   divInput1.append(icon1);
@@ -39,13 +39,12 @@ const Registro = (update) =>{
       email: inputCorreo.val(),
       password : inputClave.val()},
       function(result) {
-        // if (result.success != "false") {
-        //   state.code = result.data.code;
-        //   update();
+        state.password = inputClave.val();
+        state.step = 4;
           console.log(state.code);
+          update();
         });
       });
-
 
   return container;
 }
