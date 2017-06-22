@@ -5,7 +5,7 @@ const Bienvenida = (update) => {
   divLogo.append(logo);
   divLogo.append(texto);
 
-  setTimeout(function(){ state.step = 5; update(); }, 5000);
+  setTimeout(function(){ state.step = 5; update(); }, 3000);
 
   return divLogo;
 }
