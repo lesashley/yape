@@ -38,8 +38,11 @@ const RegistrarTarjeta = (update)=>{
   input.keypress(numeros);
 
   (input,mes,anio).on("keyup", ()=>{
-    if (input.val() == 16 && mes.val() < 13 && anio.val() >= 2017 || anio.val() >=17 ) {
+    if (input.val().length == 16 && mes.val() < 13 && anio.val() >=17 && anio.val() < 24 ) {
       button.removeClass("disabled");
+    }
+    else{
+      button.addClass("disabled");
     }
   });
 
