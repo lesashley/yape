@@ -13,6 +13,12 @@ const render = (root,data) =>{
     wrapper.append(Registro(_ => render(root)));
   } else if(state.step == 4){
     wrapper.append(Bienvenida(_=> render(root)));
+  } else if (state.step == 5) {
+    wrapper.append(RegistrarTarjeta(_ => render(root)));
+  } else if (state.step == 6) {
+    wrapper.append(IngresarContrasena(_ => render(root)));
+  } else {
+    wrapper.append(Interfaz(_ => render(root)));
   }
   root.append(wrapper);
 }
@@ -33,16 +39,6 @@ $( _ => {
   const root = $("#root");
   render(root);
 
-
-  $(".name, .email, .password").keyup(function () {
-    let regEmail = /^\S+@\S+\.\S+/;
-    if ($(".name").val() != "" && $(".password").val() != "" && regEmail.test($(".email").val())) {
-      $("button").removeClass("disabled");
-    }
-    else{
-      $("button").addClass("disabled");
-    }
-  });
 
   $('.owl-carousel').owlCarousel({
     loop:true,

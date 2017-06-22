@@ -1,3 +1,4 @@
+
 *{
   font-family: 'Roboto' !important;
 }
@@ -111,6 +112,9 @@
   width: 16px;
 }
 /*cuarta-pagina*/
+.text-advertencia{
+  font-size: 0.9rem;
+}
 .icon-user{
   bottom: 30px;
   width: 22px;
@@ -149,6 +153,13 @@
 .img-check{
   display: block;
   width: 100px;
+  margin-bottom: 10px;
+}
+.text-purple{
+  color:  #38052a;
+  font-size: 1.4rem;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 /**/
 .icon-tarjeta{
@@ -161,6 +172,7 @@
 }
 .fecha{
   width: 100%;
+  overflow: auto;
 }
 .screen{
   width: 25px;
@@ -188,4 +200,86 @@
 .icon-lock2{
   top: 0;
   width: 20px;
+}
+
+.bg-color{
+  background-color: #38052a;
+  height: 100vh;
+}
+.text-saludo{
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+.icon-happy{
+  width: 100px;
+}
+.icon-tuerca{
+  width: 25px;
+}
+.large{
+  background-color: #451e36;
+  width: 100%;
+  padding: 8px 10px;
+  height: 230px;
+}
+.icon-eye{
+  width: 20px;
+}
+.box-superior{
+  margin: 50px auto 0 auto;
+  text-align: center;
+}
+.box-superior div{
+  margin: 0 auto;
+  text-align: center;
+}
+.text-left{
+  display: inline-block;
+  padding: 15px 0;
+  color: #fff;
+  font-weight: 500;
+}
+.icon-arrow{
+  padding-top: 10px;
+  width: 25px;
+}
+.icon-party{
+  width: 100px;
+}
+.box-iconInferior{
+  width: 80%;
+  overflow: auto;
+  margin: 15px 20px 0 20px;
+}
+.box-mov{
+  margin: 0 20px;
+  overflow: auto;
+}
+.text-right{
+  color: #fff;
+  width: 60%;
+}
+.text-right p{
+  margin: 0;
+}
+.btn-icon{
+  margin: 70px auto 0 auto;
+  width: 70%;
+}
+.text-icon{
+  width: 80%;
+  font-size: 0.8rem;
+  margin: 0 auto;
+  color: #fff;
+}
+.btn-icon img{
+  width: 50px;
+}
+.container-end{
+  height: 100vh;
+}
+.c-turquesa{
+  color: #00c3a3;
 }

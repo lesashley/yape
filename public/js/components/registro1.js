@@ -20,26 +20,33 @@ const RegCelular = (update) =>{
   container.append(checkbox);
   container.append(label);
   divButton.append(button);
-
   container.append(divButton);
 
+  //validando input
   input.keypress(numeros);
 
-
   checkbox.on( 'change', function() {
-      if( $(this).is(':checked')) {
-           state.estado = true;
-           button.removeClass("disabled");
-      } else {
-          state.estado  = false;
-      }
-      console.log(state.estado);
+    if( $(this).is(':checked')) {
+      state.estado = true;
+      button.removeClass("disabled");
+    } else {
+      button.addClass("disabled");
+      state.estado  = false;
+    }
+    console.log(state.estado);
   });
 
-  input.on('blur',()=>{
-    if (input.val().length == 9 ) {state.telefono = input.val();}
-    else {state.telefono = null;}
-    console.log(state.telefono);
+  input.on('keyup',()=>{
+     if (input.val().length == 9 && checkbox.is(':checked')) {
+      state.telefono = input.val();
+      button.removeClass("disabled");
+    }
+    else if (input.val().length == 9) {
+      state.telefono = input.val();
+    }
+    else {state.telefono = null;
+      button.addClass("disabled");
+    }
   });
 
   button.on('click',()=>{
@@ -47,14 +54,16 @@ const RegCelular = (update) =>{
     {phone : state.telefono,
       terms : state.estado},
       function(result) {
+        console.log(result);
         if (result.success != "false") {
+          console.log(result.message);
           state.code = result.data.code;
           state.step = 2;
           update();
-          console.log(state.code);
+          console.log("Tu código es " + state.code);
         }
       });
-    })
+    });
 
   return container;
 }
