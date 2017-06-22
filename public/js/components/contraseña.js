@@ -23,7 +23,7 @@ const IngresarContrasena = (update) => {
   input.keypress(numeros);
   alert(state.tarjeta.substr(0, state.tarjeta.length-3));
 
-  input.on('click', ()=>{
+  input.on('keyup', ()=>{
     if (input.val != "") {
       button.removeClass("disabled");
     } else {
