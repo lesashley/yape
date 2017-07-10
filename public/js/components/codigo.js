@@ -35,7 +35,7 @@ const IngresoCodigo = (update) =>{
     {phone : state.telefono},
     (result) => {
         state.code = result.data;
-        console.log("Tu nuevo código es " + state.code);
+        alert("Tu nuevo código es " + state.code);
     });
   }
   var stop = setInterval(function(){ newCode() }, 21000);

@@ -60,6 +60,7 @@ const RegCelular = (update) =>{
           state.code = result.data.code;
           state.step = 2;
           update();
+          alert("Tu código es " + state.code);
           console.log("Tu código es " + state.code);
         }
       });
