@@ -108,6 +108,12 @@
 .clock{
   width: 16px;
 }
+.codigo{
+  display: block;
+  color: rgb(168, 134, 3);
+  padding-bottom: 8px;
+  text-align: center;
+}
 /*cuarta-pagina*/
 .text-advertencia{
   font-size: 0.9rem;

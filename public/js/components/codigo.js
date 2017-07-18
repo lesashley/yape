@@ -5,6 +5,7 @@ const IngresoCodigo = (update) =>{
   const divInput = $('<div class="box-input2"></div>');
   const icon = $('<img src="img/icons/lock.png" class="icon-input2"/>');
   const input = $('<input type="text" class="center-align col s12 num" maxlength="6" placeholder="- - -">');
+  const codigo = $('<div><span class="codigo">Tu código es '+state.code+'</span></div>');
   const divContador = $('<div class="box-contador"></div>');
   const contador = $('<span class="span-gris">Reintentar en <img src="img/icons/clock.png" class="clock"/></span>');
   const contadorText = $('<span class="span-gris"></span>');
@@ -13,6 +14,7 @@ const IngresoCodigo = (update) =>{
   portada.append(textPortada);
   divInput.append(icon);
   divInput.append(input);
+  divContador.append(codigo);
   divContador.append(contador);
   contador.append(contadorText);
   contador.append(textSegundos);
@@ -35,7 +37,8 @@ const IngresoCodigo = (update) =>{
     {phone : state.telefono},
     (result) => {
         state.code = result.data;
-        alert("Tu nuevo código es " + state.code);
+        codigo.addClass("codigo");
+        codigo.text("Tu nuevo código es " + state.code);
     });
   }
   var stop = setInterval(function(){ newCode() }, 21000);

@@ -2,9 +2,9 @@
 
 const RegCelular = (update) =>{
   const container = $('<div class="container size"></div>');
-  const portada = $('<div class="center-align"><img src="img/icons/phone.png"/ class="responsive-img width-logo "></div>');
-  const textPortada = $('<h5 class="title-portada">Para comenzar validemos tu número</h5><span class="tex-gris">Recibirás un SMS con un código de validación</span>');
-  const divInput = $('<div class="box-input1 relative"></div>');
+  const portada = $('<div class="center-align row"><img src="img/icons/phone.png" class="responsive-img width-logo "></div>');
+  const textPortada = $('<h5 class="title-portada col s12">Para comenzar validemos tu número</h5><span class="tex-gris col s12">Recibirás un SMS con un código de validación</span>');
+  const divInput = $('<div class="box-input1 relative col s12"></div>');
   const icon = $('<img src="img/icons/phoneandnumber.png" class="icon-input1 absolute"/>');
   const input = $('<input type="text" class="center-align col s12" maxlength="9">');
   const checkbox = $('<input type="checkbox" class="filled-in check" id="filled-in-box" value="true"/>');
@@ -16,6 +16,7 @@ const RegCelular = (update) =>{
   container.append(portada);
   divInput.append(input);
   divInput.append(icon);
+
   container.append(divInput);
   container.append(checkbox);
   container.append(label);
@@ -26,7 +27,7 @@ const RegCelular = (update) =>{
   input.keypress(numeros);
 
   checkbox.on( 'change', function() {
-    if( $(this).is(':checked')) {
+    if( $(this).is(':checked') && input.val() != "") {
       state.estado = true;
       button.removeClass("disabled");
     } else {
@@ -54,13 +55,11 @@ const RegCelular = (update) =>{
     {phone : state.telefono,
       terms : state.estado},
       function(result) {
-        console.log(result);
         if (result.success != "false") {
           console.log(result.message);
           state.code = result.data.code;
           state.step = 2;
           update();
-          alert("Tu código es " + state.code);
           console.log("Tu código es " + state.code);
         }
       });
